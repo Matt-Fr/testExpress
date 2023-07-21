@@ -7,6 +7,8 @@ app.listen(PORT, () => console.log(`running express server on port ${PORT}`));
 
 //allows to send json to the server
 app.use(express.json());
+//allows to send urlencoded data
+app.use(express.urlencoded());
 
 const groceryList = [
   {
