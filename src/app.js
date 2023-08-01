@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const PORT = 3001;
 
-//listen on port 3001
 app.listen(PORT, () => console.log(`running express server on port ${PORT}`));
 
 //allows to send json to the server
