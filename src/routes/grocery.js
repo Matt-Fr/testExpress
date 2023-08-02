@@ -18,21 +18,11 @@ const groceryList = [
 ];
 
 //it allows client to get ressources
-router.get("/groceries", (requestObject, responseObject) => {
+router.get("/", (requestObject, responseObject) => {
   responseObject.send(groceryList);
 });
 
-//allow to create a ressource
-router.post("/groceries", (request, response) => {
-  // log what the client sent
-  console.log(request.body);
-  // send a status
-  response.sendStatus(201);
-  //push what send the client into our grocery list
-  groceryList.push(request.body);
-});
-
-router.get("/groceries/:item", (request, response) => {
+router.get("/:item", (request, response) => {
   //every single route params is gonna be stored
   console.log(request.params.item);
   // request.params.itema;
@@ -40,7 +30,16 @@ router.get("/groceries/:item", (request, response) => {
   // find the item in the list
   const groceryItem = groceryList.find((g) => g.item === item);
   response.send(groceryItem);
-  s;
+});
+
+//allow to create a ressource
+router.post("/", (request, response) => {
+  // log what the client sent
+  console.log(request.body);
+  // send a status
+  response.sendStatus(201);
+  //push what send the client into our grocery list
+  groceryList.push(request.body);
 });
 
 module.exports = router;
