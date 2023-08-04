@@ -1,4 +1,4 @@
-const { Router } = require("express");
+const { Router, response } = require("express");
 
 const router = Router();
 
@@ -19,6 +19,7 @@ const groceryList = [
 
 //it allows client to get ressources
 router.get("/", (requestObject, responseObject) => {
+  responseObject.cookie("visited", true, { maxAge: 10000 });
   responseObject.send(groceryList);
 });
 
