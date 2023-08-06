@@ -4,6 +4,7 @@ const PORT = 3001;
 const groceriesRoute = require("./routes/grocery");
 const marketRouter = require("./routes/markets");
 const cookieParser = require("cookie-parser");
+const session = require("express-session");
 
 //allows to send json to the server
 app.use(express.json());
@@ -11,6 +12,14 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 app.use(cookieParser());
+
+app.use(
+  session({
+    secret: "AAEFKOKEOFZKEOD",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 
 //a middleware is a funtion to be invoked in the middle of 2 main functionnalities (most common : login)
 
