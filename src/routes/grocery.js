@@ -33,6 +33,28 @@ router.get("/:item", (request, response) => {
   response.send(groceryItem);
 });
 
+router.get("/shopping/cart", (req, res) => {
+  const { cart } = req.session;
+  if (!cart) {
+    res.send("you have no item in your card");
+  } else {
+    res.send(cart);
+  }
+});
+
+router.post("/shopping/cart/item", (req, res) => {
+  const { item, quantity } = req.body;
+  const cartItem = { item, quantity };
+  const { cart } = req.session;
+  console.log(cartItem);
+  if (cart) {
+    req.session.cart.items.push(cartItem);
+  } else {
+    req.session.cart = { items: cartItem };
+  }
+  res.send(201);
+});
+
 //allow to create a ressource
 router.post("/", (request, response) => {
   // log what the client sent
