@@ -59,7 +59,7 @@ router.post("/shopping/cart/item", (req, res) => {
 router.post("/", (request, response) => {
   // log what the client sent
   console.log(request.body);
-  // send a status
+
   response.sendStatus(201);
   //push what send the client into our grocery list
   groceryList.push(request.body);
