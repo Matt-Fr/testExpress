@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
 const PORT = 3001;
 const groceriesRoute = require("./routes/grocery");
@@ -12,6 +13,8 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 app.use(cookieParser());
+
+mongoo;
 
 app.use(
   session({
