@@ -1,5 +1,4 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const app = express();
 const PORT = 3001;
 const groceriesRoute = require("./routes/grocery");
@@ -7,14 +6,13 @@ const marketRouter = require("./routes/markets");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 
+require("./db/index");
 //allows to send json to the server
 app.use(express.json());
 //allows to send urlencoded data
 app.use(express.urlencoded());
 
 app.use(cookieParser());
-
-mongoo;
 
 app.use(
   session({
