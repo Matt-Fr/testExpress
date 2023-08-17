@@ -5,7 +5,7 @@ const groceriesRoute = require("./routes/grocery");
 const marketRouter = require("./routes/markets");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-const auth = require("./routes/auth");
+const authRoute = require("./routes/auth");
 
 require("./db/index");
 //allows to send json to the server
@@ -27,6 +27,6 @@ app.use(
 
 app.use("/api/v1/groceries", groceriesRoute);
 app.use("/api/v1/markets", marketRouter);
-app.use("/api/v1/register", auth);
+app.use("/api/v1/auth", authRoute);
 
 app.listen(PORT, () => console.log(`running express server on port ${PORT}`));
